@@ -10,12 +10,13 @@ vector<float> multiply(vector<float> v1, vector<float> v2); // multiply two vect
 
 void main()
 {
-	// Data
+	
 	int m; // degree
 
 	int n; // number of data
 	cout << "Number of Data: "; cin >> n;
 
+	// Data
 	vector<float> x(n);
 	vector<float> y(n);
 	vector<float> w(n);
@@ -36,6 +37,11 @@ void main()
 		cin >> w[i];
 	}
 
+	// print points
+	for (int i = 0; i < x.size(); i++) {
+		cout << "(" << x[i] << ", " << y[i] << ")\n";
+	}
+
 	// calculating
 	cout << "Degree: ";
 	while (cin >> m) // to allow user to change the degree for the same data
@@ -44,11 +50,11 @@ void main()
 		{
 			for (int j = 0; j <= m; j++)
 			{
-				cout <<"(" << sum(multiply(w, power(x, j + k))) << ")a" << j << "";
+				cout << sum(multiply(w, power(x, j + k)));
 				if (j != m)
-					cout << " + ";
+					cout << "  ";
 			}
-			cout << " = " << sum(multiply(multiply(w, power(x, k)), y));
+			cout << "  " << sum(multiply(multiply(w, power(x, k)), y));
 			cout << endl;
 		}
 		cout << "Degree: ";
